@@ -1,4 +1,4 @@
-# Experiment 11(a): Representation of Graph
+# Experiment 17D: Representation of Graph
 
 ## Aim
 To write a Python program to generate a graph for a given fixed degree sequence.
@@ -29,9 +29,50 @@ To write a Python program to generate a graph for a given fixed degree sequence.
 ## Program
 
 ```
+def printMat(degseq, n):
+	
+	# n is number of vertices
+	mat = [[0] * n for i in range(n)]
+
+	for i in range(n):
+		for j in range(i + 1, n):
+
+			# For each pair of vertex decrement
+			# the degree of both vertex.
+			if (degseq[i] >0 and degseq[j] > 0):
+				degseq[i] -= 1
+				degseq[j] -= 1
+				mat[i][j] = 1
+				mat[j][i] = 1
+
+	# Print the result in specified form
+	print("      ", end ="")
+	for i in range(n):
+		print(" ", "(", i, ")", end ="")
+	print()
+	print()
+	for i in range(n):
+		print("  ", "(", i, ")", end = " ")
+		for  j in range(n):
+			print("  ", mat[i][j], end = " ")
+		print()
+
+# Driver Code
+degseq=[]
+for i in range(0, 5):
+    ele = int(input())
+  
+    degseq.append(ele)
+#degseq =[v0,v1,v2,v3,v4]
+
+n = len(degseq)
+printMat(degseq, n)
+
 
 ```
 
 ## OUTPUT
+![image](https://github.com/user-attachments/assets/424be363-e181-498a-bc44-bd1811255f11)
 
 ## RESULT
+Thus the python program was initialised and executed successfully.
